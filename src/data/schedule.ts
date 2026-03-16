@@ -62,7 +62,7 @@ export const schedules: DaySchedule[] = [
     day: 3,
     date: '2026-03-21',
     title: { ko: 'Day 3 — 새별 프렌즈 & 누나 가족 귀국', ja: 'Day 3 — セビョルフレンズ & 姉家族帰国' },
-    overview: { ko: '새별 프렌즈 체험 후 애월 점심. 누나 가족 공항 배웅. 이후 온천 및 저녁 식사.', ja: 'セビョルフレンズ体験後、涯月でランチ。姉家族を見送り。その後、温泉と夕食。' },
+    overview: { ko: '새별 프렌즈 체험 후 애월 점심. 누나 가족 공항 배웅. 이후 마노 커피하우스(중문)에서 커피 타임 후 올레마당 저녁 식사, 오레브 온천.', ja: 'セビョルフレンズ体験後、涯月でランチ。姉家族を見送り。マノコーヒーハウスでコーヒータイム後、夕食、オレブ温泉へ。' },
     timeline: [
       { time: '07:30 ~ 08:30', content: { ko: '아침 식사 — 오는 정 김밥', ja: '朝食 — キンパブ' }, highlight: true },
       { time: '09:00', content: { ko: '숙소 출발 (차량 2대)', ja: '宿出発（2台）' } },
@@ -73,8 +73,11 @@ export const schedules: DaySchedule[] = [
       { time: '14:00 ~ 15:00', content: { ko: '누나 가족 배웅 (TW331 게이트 입장)', ja: '姉家族お見送り (TW331)' }, highlight: true },
       { time: '15:00', content: { ko: '아이오닉9 반납', ja: 'IONIQ9 返却' }, groups: ['me_gf', 'parents'] },
       { time: '16:00', content: { ko: '오사카 도착 (누나 가족)', ja: '大阪到着（姉家族）' }, groups: ['sister_family'] },
-      { time: '약 16:10', content: { ko: '숙소 도착', ja: '宿到着' }, groups: ['me_gf', 'parents'] },
-      { time: '16:30 ~', content: { ko: '오레브 핫 스프링 앤 스파 또는 올레마당 저녁 식사', ja: 'オレブ温泉 または オルレマダン夕食' }, groups: ['me_gf', 'parents'], highlight: true },
+      { time: '15:10 ~ 16:00', content: { ko: '공항 → 마노 커피하우스 이동 (약 50분)', ja: '空港 → マノコーヒーハウス 移動（約50分）' }, groups: ['me_gf', 'parents'] },
+      { time: '16:00 ~ 16:40', content: { ko: '마노 커피하우스 커피 타임 (중문)', ja: 'マノコーヒーハウス コーヒータイム（中文）' }, groups: ['me_gf', 'parents'], highlight: true },
+      { time: '16:40 ~ 17:00', content: { ko: '마노 커피하우스 → 올레마당 이동 (약 15~20분)', ja: 'マノコーヒーハウス → オルレマダン 移動（約15〜20分）' }, groups: ['me_gf', 'parents'] },
+      { time: '17:00 ~ 18:30', content: { ko: '올레마당 저녁 식사 (고등어 구이 / 갈치 조림)', ja: 'オルレマダン夕食（サバ焼き / タチウオ煮）' }, groups: ['me_gf', 'parents'], highlight: true },
+      { time: '19:00 ~ 20:30', content: { ko: '오레브 핫 스프링 앤 스파', ja: 'オレブ ホットスプリング＆スパ' }, groups: ['me_gf', 'parents'], highlight: true },
     ],
   },
   {
