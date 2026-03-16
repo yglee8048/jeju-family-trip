@@ -14,7 +14,7 @@ export default function HomePage() {
 
   if (!persona) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white animate-fade-in">
+      <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white animate-fade-in">
         <div className="pt-12 pb-8 px-4 text-center">
           <div className="text-5xl mb-4">🌿</div>
           <h1 className="text-xl font-bold text-gray-800 mb-2">{t(lang, 'onboarding.title')}</h1>
@@ -46,7 +46,7 @@ export default function HomePage() {
     return (
       <div className="px-4 pt-4 space-y-5">
         {/* D-Day Card */}
-        <div className="relative bg-gradient-to-br from-sky-400 via-emerald-400 to-teal-500 rounded-3xl p-6 text-white overflow-hidden animate-fade-in">
+        <div className="relative bg-gradient-to-br from-[#9CD5FF] via-sky-400 to-sky-500 rounded-3xl p-6 text-white overflow-hidden animate-fade-in">
           <div className="absolute inset-0 opacity-10" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }} />
@@ -84,7 +84,7 @@ export default function HomePage() {
   return (
     <div className="px-4 pt-4 space-y-5">
       {/* Today Hero */}
-      <div className="relative bg-gradient-to-br from-sky-400 via-emerald-400 to-teal-500 rounded-3xl p-6 text-white overflow-hidden animate-fade-in">
+      <div className="relative bg-gradient-to-br from-[#9CD5FF] via-sky-400 to-sky-500 rounded-3xl p-6 text-white overflow-hidden animate-fade-in">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }} />
@@ -98,9 +98,9 @@ export default function HomePage() {
         <div className="animate-fade-in stagger-1">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-base font-bold text-gray-800">{t(lang, 'home.todaySchedule')}</h2>
-            <Link href={`/schedule/${currentDay}`} className="text-xs text-emerald-600 font-medium">전체 보기 →</Link>
+            <Link href={`/schedule/${currentDay}`} className="text-xs text-sky-600 font-medium">전체 보기 →</Link>
           </div>
-          <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-emerald-400">
+          <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-sky-300">
             {todayTimeline.map((item, i) => (
               <TimelineItem key={i} item={item} lang={lang} />
             ))}

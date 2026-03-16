@@ -5,10 +5,10 @@ import { hotelInfo, hotelPrograms } from '../../src/data/hotel';
 import { t } from '../../src/i18n';
 
 const categoryColors = {
-  popup: 'bg-pink-400',
-  morning: 'bg-sky-400',
-  afternoon: 'bg-emerald-400',
-  evening: 'bg-purple-400',
+  popup: 'bg-[#f0a0b8]',
+  morning: 'bg-sky-300',
+  afternoon: 'bg-[#5ec4b1]',
+  evening: 'bg-[#9b8fe8]',
 };
 
 export default function HotelPage() {
@@ -27,13 +27,13 @@ export default function HotelPage() {
       <h1 className="text-xl font-bold text-gray-800">{t(lang, 'hotel.title')}</h1>
 
       {/* Basic Info */}
-      <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-emerald-400 space-y-3">
+      <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-sky-300 space-y-3">
         <h2 className="font-bold text-gray-800">{hotelInfo.name[lang]}</h2>
         <p className="text-sm text-gray-500">{hotelInfo.address[lang]}</p>
         <div className="flex gap-4">
           <div className="text-center">
             <div className="text-xs text-gray-400">{t(lang, 'hotel.checkIn')}</div>
-            <div className="text-lg font-bold text-emerald-600">{hotelInfo.checkIn}</div>
+            <div className="text-lg font-bold text-sky-600">{hotelInfo.checkIn}</div>
           </div>
           <div className="text-center">
             <div className="text-xs text-gray-400">{t(lang, 'hotel.checkOut')}</div>
@@ -43,11 +43,11 @@ export default function HotelPage() {
       </div>
 
       {/* Facilities */}
-      <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-sky-400">
+      <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-sky-300">
         <h2 className="font-bold text-gray-800 mb-3">{t(lang, 'hotel.facilities')}</h2>
         <div className="flex flex-wrap gap-2">
           {hotelInfo.facilities.map((f, i) => (
-            <span key={i} className="bg-emerald-50 text-emerald-700 text-xs font-medium px-3 py-1.5 rounded-full">
+            <span key={i} className="bg-sky-50 text-sky-700 text-xs font-medium px-3 py-1.5 rounded-full">
               {f[lang]}
             </span>
           ))}
@@ -119,7 +119,7 @@ export default function HotelPage() {
                         ) : <span />}
 
                         {p.price ? (
-                          <span className="text-xs font-semibold text-emerald-600">
+                          <span className="text-xs font-semibold text-sky-600">
                             {p.price.toLocaleString()}{t(lang, 'hotel.won')}
                           </span>
                         ) : (

@@ -28,7 +28,7 @@ export function BottomNav() {
               className="flex-1 flex flex-col items-center py-2 transition-colors"
             >
               <div className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${
-                isActive ? 'text-emerald-600 bg-emerald-50' : 'text-gray-400'
+                isActive ? 'text-sky-600 bg-sky-50' : 'text-gray-400'
               }`}>
                 <item.Icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.8} />
                 <span className="text-[10px] font-medium">{item.label}</span>

@@ -26,9 +26,8 @@ export function PersonaSelector({ onSelect, isOnboarding }: Props) {
         <button
           key={p.id}
           onClick={() => handleSelect(p.id)}
-          className="flex flex-col items-center gap-2 bg-white border-2 border-gray-200 hover:border-emerald-400 active:border-emerald-600 rounded-2xl p-5 transition-colors shadow-sm"
+          className="flex flex-col items-center justify-center bg-white border-2 border-gray-200 hover:border-sky-300 active:border-sky-500 rounded-2xl p-5 transition-colors shadow-sm"
         >
-          <span className="text-4xl">{p.emoji}</span>
           <span className="text-base font-semibold text-gray-800">{p.name[lang]}</span>
         </button>
       ))}

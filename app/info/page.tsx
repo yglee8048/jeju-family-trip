@@ -33,7 +33,7 @@ export default function InfoPage() {
               </div>
               <div className="text-base font-bold text-gray-800">{f.route[lang]}</div>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-sm font-semibold text-emerald-600">{f.departure}</span>
+                <span className="text-sm font-semibold text-sky-600">{f.departure}</span>
                 <span className="text-gray-300">→</span>
                 <span className="text-sm font-semibold text-gray-700">{f.arrival}</span>
                 <span className="text-xs text-gray-400 ml-auto">{f.flight}</span>
@@ -68,7 +68,7 @@ export default function InfoPage() {
             { ko: '체크인 18:00 이전: 레지던스 로비 / 이후: 호텔 로비', ja: 'チェックイン 18:00前: レジデンスロビー / 以降: ホテルロビー' },
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
-              <span className="text-emerald-500 mt-0.5">•</span>
+              <span className="text-sky-400 mt-0.5">•</span>
               <span>{tip[lang]}</span>
             </div>
           ))}

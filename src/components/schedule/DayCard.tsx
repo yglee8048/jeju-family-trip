@@ -9,10 +9,10 @@ interface Props {
 }
 
 const dayColors = [
-  { bg: 'bg-sky-50', border: 'border-sky-200', bar: 'bg-sky-400' },
-  { bg: 'bg-green-50', border: 'border-green-200', bar: 'bg-emerald-400' },
-  { bg: 'bg-purple-50', border: 'border-purple-200', bar: 'bg-purple-400' },
-  { bg: 'bg-orange-50', border: 'border-orange-200', bar: 'bg-orange-400' },
+  { bg: 'bg-sky-50', border: 'border-sky-200', bar: 'bg-sky-300' },
+  { bg: 'bg-[#f0faf8]', border: 'border-[#b2e4da]', bar: 'bg-[#5ec4b1]' },
+  { bg: 'bg-[#f3f1ff]', border: 'border-[#c9c3f5]', bar: 'bg-[#9b8fe8]' },
+  { bg: 'bg-orange-50', border: 'border-orange-200', bar: 'bg-[#e8956a]' },
 ];
 
 export function DayCard({ schedule, lang }: Props) {
@@ -26,7 +26,7 @@ export function DayCard({ schedule, lang }: Props) {
         <div className="p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-gray-500">{schedule.date}</span>
-            <span className="flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
+            <span className="flex items-center gap-0.5 text-xs font-semibold text-sky-600">
               상세 <ChevronRight className="w-3 h-3" />
             </span>
           </div>

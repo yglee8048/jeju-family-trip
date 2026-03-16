@@ -6,16 +6,15 @@ export interface Persona {
   name: { ko: string; ja: string };
   group: Group;
   defaultLang: Lang;
-  emoji: string;
 }
 
 export const personas: Persona[] = [
-  { id: 'younggyu', name: { ko: '이영규', ja: 'イ・ヨンギュ' }, group: 'me_gf', defaultLang: 'ko', emoji: '🙋‍♂️' },
-  { id: 'jina', name: { ko: '김진아', ja: 'キム・ジナ' }, group: 'me_gf', defaultLang: 'ko', emoji: '👩' },
-  { id: 'jungkwon', name: { ko: '이정권', ja: 'イ・ジョングォン' }, group: 'parents', defaultLang: 'ko', emoji: '👨' },
-  { id: 'hyungsoon', name: { ko: '박형순', ja: 'パク・ヒョンスン' }, group: 'parents', defaultLang: 'ko', emoji: '👩‍🦳' },
-  { id: 'jungmin', name: { ko: '이정민', ja: 'イ・ジョンミン' }, group: 'sister_family', defaultLang: 'ko', emoji: '👩‍👦' },
-  { id: 'kazuma', name: { ko: '코이 카즈마', ja: 'コイ・カズマ' }, group: 'sister_family', defaultLang: 'ja', emoji: '🇯🇵' },
+  { id: 'younggyu', name: { ko: '영규', ja: 'ヨンギュ' }, group: 'me_gf', defaultLang: 'ko' },
+  { id: 'jina', name: { ko: '진아', ja: 'ジナ' }, group: 'me_gf', defaultLang: 'ko' },
+  { id: 'jungkwon', name: { ko: '정권', ja: 'ジョングォン' }, group: 'parents', defaultLang: 'ko' },
+  { id: 'hyungsoon', name: { ko: '형순', ja: 'ヒョンスン' }, group: 'parents', defaultLang: 'ko' },
+  { id: 'jungmin', name: { ko: '정민', ja: 'ジョンミン' }, group: 'sister_family', defaultLang: 'ko' },
+  { id: 'kazuma', name: { ko: '카즈마', ja: 'カズマ' }, group: 'sister_family', defaultLang: 'ja' },
 ];
 
 export function getPersonaById(id: string): Persona | undefined {
