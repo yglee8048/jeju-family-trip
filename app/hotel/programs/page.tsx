@@ -11,8 +11,8 @@ const categoryColors = {
     morning: 'bg-sky-300',
     afternoon: 'bg-[#5ec4b1]',
     evening: 'bg-[#9b8fe8]',
-    kids: 'bg-orange-300',
-    rental: 'bg-violet-400',
+    kids: 'bg-gray-300',
+    rental: 'bg-amber-400',
 };
 
 export default function HotelProgramsPage() {
@@ -140,11 +140,14 @@ export default function HotelProgramsPage() {
                             <div className="flex items-center gap-2 mb-2">
                                 <span className={`w-2 h-2 rounded-full ${categoryColors[cat]}`}/>
                                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{categoryLabels[cat]}</h3>
+                                {cat === 'kids' && (
+                                    <span className="text-xs text-gray-400">{lang === 'ko' ? '(48개월 미만 참여 불가)' : '(48ヶ月未満参加不可)'}</span>
+                                )}
                             </div>
                             <div className="space-y-2">
                                 {programs.map(p => (
                                     <div key={p.id}
-                                         className="bg-white rounded-xl overflow-hidden shadow-sm transition-shadow hover:shadow-md">
+                                         className={`rounded-xl overflow-hidden shadow-sm transition-shadow hover:shadow-md ${cat === 'kids' ? 'bg-gray-50 opacity-60' : 'bg-white'}`}>
                                         <div className={`h-0.5 ${categoryColors[cat]}`}/>
                                         <div className="p-3 space-y-2">
                                             <div className="text-sm font-semibold text-gray-800">{p.name[lang]}</div>
