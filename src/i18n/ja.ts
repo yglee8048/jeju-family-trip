@@ -26,6 +26,8 @@ export const ja = {
     viewDetail: '詳細を見る',
     allGroups: '全員',
     myGroup: '私のスケジュール',
+    candidates: '候補レストラン',
+    map: '地図',
   },
   hotel: {
     title: 'ホテル情報',

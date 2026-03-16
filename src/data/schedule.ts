@@ -7,16 +7,14 @@ export interface TimelineItem {
     groups?: Group[];
     note?: { ko: string; ja: string };
     marker?: { num: number; color: string };
+    url?: string;
+    candidates?: LunchCandidate[];
 }
 
 export interface LunchCandidate {
     name: string;
     desc: { ko: string; ja: string };
-}
-
-export interface CandidateGroup {
-    category: { ko: string; ja: string };
-    items: LunchCandidate[];
+    url?: string;
 }
 
 export interface DaySchedule {
@@ -26,7 +24,6 @@ export interface DaySchedule {
     overview: { ko: string; ja: string };
     timeline: TimelineItem[];
     groups?: Group[];
-    candidates?: CandidateGroup[];
 }
 
 export const schedules: DaySchedule[] = [
@@ -58,7 +55,19 @@ export const schedules: DaySchedule[] = [
                 time: '12:30 ~ 13:30',
                 content: {ko: '점심 식사', ja: 'ランチ'},
                 groups: ['me_gf'],
-                marker: {num: 2, color: '#F85F61'}
+                marker: {num: 2, color: '#F85F61'},
+                candidates: [
+                    {
+                        name: '산우정',
+                        desc: {ko: '육회', ja: '済州黒豚スユク'},
+                        url: 'https://naver.me/GipB0Otv',
+                    },
+                    {
+                        name: '한림 칼국수',
+                        desc: {ko: '보말 칼국수', ja: '魚介カルグクス'},
+                        url: 'https://naver.me/xyTtkgVu',
+                    },
+                ],
             },
             {
                 time: '14:00',
@@ -96,15 +105,6 @@ export const schedules: DaySchedule[] = [
             },
             {time: '저녁', content: {ko: '숙소에서 제주 흑돼지 구이', ja: '宿で済州黒豚焼肉'}, highlight: true},
         ],
-        candidates: [
-            {
-                category: {ko: '점심 후보', ja: 'ランチ候補'},
-                items: [
-                    {name: '산우정', desc: {ko: '제주 흑돼지 수육', ja: '済州黒豚スユク'}},
-                    {name: '한림 칼국수', desc: {ko: '생선 칼국수', ja: '魚介カルグクス'}},
-                ],
-            },
-        ],
     },
     {
         day: 2,
@@ -134,7 +134,24 @@ export const schedules: DaySchedule[] = [
                 time: '12:00 ~ 13:00',
                 content: {ko: '점심 식사 (고기국수)', ja: 'ランチ（豚肉麺）'},
                 highlight: true,
-                marker: {num: 3, color: '#F85F61'}
+                marker: {num: 3, color: '#F85F61'},
+                candidates: [
+                    {
+                        name: '어우름',
+                        desc: {ko: '제주 흑돼지 고기국수', ja: '済州黒豚 肉麺'},
+                        url: 'https://naver.me/FxCb5Mbz',
+                    },
+                    {
+                        name: '꽃가람',
+                        desc: {ko: '고기국수 / 비빔국수', ja: '肉麺 / ビビム麺'},
+                        url: 'https://naver.me/54LbcTP5',
+                    },
+                    {
+                        name: '삼무 국수',
+                        desc: {ko: '고기국수', ja: '肉麺'},
+                        url: 'https://naver.me/GaldxJuD',
+                    },
+                ],
             },
             {
                 time: '13:30 ~ 15:30',
@@ -150,16 +167,6 @@ export const schedules: DaySchedule[] = [
                 content: {ko: '숙소에서 회 취식', ja: '宿で刺身'},
                 highlight: true,
                 marker: {num: 5, color: '#3BC4B8'}
-            },
-        ],
-        candidates: [
-            {
-                category: {ko: '점심 후보 (고기국수)', ja: 'ランチ候補（豚肉麺）'},
-                items: [
-                    {name: '어우름', desc: {ko: '제주 흑돼지 고기국수', ja: '済州黒豚 肉麺'}},
-                    {name: '꽃가람', desc: {ko: '고기국수 / 비빔국수', ja: '肉麺 / ビビム麺'}},
-                    {name: '삼무 국수', desc: {ko: '고기국수', ja: '肉麺'}},
-                ],
             },
         ],
     },
@@ -190,7 +197,19 @@ export const schedules: DaySchedule[] = [
                 time: '12:00 ~ 13:00',
                 content: {ko: '점심 식사 (애월)', ja: 'ランチ（涯月）'},
                 highlight: true,
-                marker: {num: 4, color: '#F85F61'}
+                marker: {num: 4, color: '#F85F61'},
+                candidates: [
+                    {
+                        name: '해녀뜰',
+                        desc: {ko: '전복죽 / 미역국 정식', ja: 'アワビ粥 / ワカメスープ定食'},
+                        url: 'https://naver.me/GkUgfVxj',
+                    },
+                    {
+                        name: '보배쌤 보리김치와 게장 하귀점',
+                        desc: {ko: '게장 / 성게미역국 정식', ja: 'カニ醤油漬け / ウニわかめスープ定食'},
+                        url: 'https://naver.me/GDafQ0Oi',
+                    },
+                ],
             },
             {
                 time: '약 13:30',
@@ -215,7 +234,8 @@ export const schedules: DaySchedule[] = [
                 content: {ko: '마노 커피하우스 커피 타임 (중문)', ja: 'マノコーヒーハウス コーヒータイム（中文）'},
                 groups: ['me_gf', 'parents'],
                 highlight: true,
-                marker: {num: 6, color: '#F85F61'}
+                marker: {num: 6, color: '#F85F61'},
+                url: 'https://naver.me/5du4xlzi',
             },
             {
                 time: '16:40 ~ 17:00',
@@ -227,7 +247,8 @@ export const schedules: DaySchedule[] = [
                 content: {ko: '올레마당 저녁 식사 (고등어 구이 / 갈치 조림)', ja: 'オルレマダン夕食（サバ焼き / タチウオ煮）'},
                 groups: ['me_gf', 'parents'],
                 highlight: true,
-                marker: {num: 7, color: '#F85F61'}
+                marker: {num: 7, color: '#F85F61'},
+                url: 'https://naver.me/5CW7nqQs',
             },
             {
                 time: '19:00 ~ 20:30',
@@ -235,15 +256,6 @@ export const schedules: DaySchedule[] = [
                 groups: ['me_gf', 'parents'],
                 highlight: true,
                 marker: {num: 8, color: '#3BC4B8'}
-            },
-        ],
-        candidates: [
-            {
-                category: {ko: '점심 후보 (애월)', ja: 'ランチ候補（涯月）'},
-                items: [
-                    {name: '해녀뜰', desc: {ko: '전복죽 / 미역국 정식', ja: 'アワビ粥 / ワカメスープ定食'}},
-                    {name: '보배쌤 보리김치와 게장 하귀점', desc: {ko: '게장 / 성게미역국 정식', ja: 'カニ醤油漬け / ウニわかめスープ定食'}},
-                ],
             },
         ],
     },
@@ -268,12 +280,24 @@ export const schedules: DaySchedule[] = [
                 time: '12:00 ~ 13:00',
                 content: {ko: '점심 식사', ja: 'ランチ'},
                 highlight: true,
-                marker: {num: 2, color: '#F85F61'}
-            },
-            {
-                time: '13:00 ~ 13:30',
-                content: {ko: '마노 커피 하우스 (말차 라떼)', ja: 'マノコーヒーハウス（抹茶ラテ）'},
-                highlight: true
+                marker: {num: 2, color: '#F85F61'},
+                candidates: [
+                    {
+                        name: '행복한 시저네',
+                        desc: {ko: '흑돼지 짜글이', ja: '黒豚チャグルイ'},
+                        url: 'https://naver.me/I55Te7HS',
+                    },
+                    {
+                        name: '맨도롱 해장국',
+                        desc: {ko: '겡이국 / 몸국', ja: 'ゲンギクク / モムクク'},
+                        url: 'https://naver.me/xtgpRiyY',
+                    },
+                    {
+                        name: '공천포 식당',
+                        desc: {ko: '물회', ja: 'ムルフェ（水刺身）'},
+                        url: 'https://naver.me/xwmqSORZ',
+                    },
+                ],
             },
             {time: '약 14:15', content: {ko: 'GV70 반납 (제주 쏘카 터미널)', ja: 'GV70 返却（済州ソカターミナル）'}},
             {
@@ -283,16 +307,6 @@ export const schedules: DaySchedule[] = [
                 marker: {num: 3, color: '#8C55F8'}
             },
             {time: '16:30', content: {ko: '김포 도착', ja: '金浦到着'}, highlight: true},
-        ],
-        candidates: [
-            {
-                category: {ko: '점심 후보', ja: 'ランチ候補'},
-                items: [
-                    {name: '행복한 시저네', desc: {ko: '흑돼지 짜글이', ja: '黒豚チャグルイ'}},
-                    {name: '맨도롱 해장국', desc: {ko: '겡이국 / 몸국', ja: 'ゲンギクク / モムクク'}},
-                    {name: '공천포 식당', desc: {ko: '물회', ja: 'ムルフェ（水刺身）'}},
-                ],
-            },
         ],
     },
 ];

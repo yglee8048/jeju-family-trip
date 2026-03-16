@@ -26,6 +26,8 @@ export const ko = {
     viewDetail: '상세 보기',
     allGroups: '전체',
     myGroup: '내 일정만',
+    candidates: '후보 식당',
+    map: '지도',
   },
   hotel: {
     title: '호텔 정보',
