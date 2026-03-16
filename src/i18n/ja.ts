@@ -1,0 +1,56 @@
+export const ja = {
+  nav: {
+    today: '今日',
+    schedule: '全日程',
+    hotel: 'ホテル',
+    info: '情報',
+  },
+  onboarding: {
+    title: '済州島 家族旅行へようこそ！🎉',
+    subtitle: 'あなたは誰ですか？',
+    desc: '名前を選ぶと、カスタマイズされたスケジュールが表示されます。',
+  },
+  home: {
+    countdown: {
+      title: '済州旅行まで',
+      unit: '日',
+    },
+    preTrip: '旅行前チェックリスト',
+    todaySchedule: '今日のスケジュール',
+    hotelPrograms: 'ホテルプログラム',
+    tripDone: '済州旅行が終わりました！良い思い出ができましたか？🌊',
+  },
+  schedule: {
+    title: '全日程',
+    day: '日目',
+    viewDetail: '詳細を見る',
+    allGroups: '全員',
+    myGroup: '私のスケジュール',
+  },
+  hotel: {
+    title: 'ホテル情報',
+    checkIn: 'チェックイン',
+    checkOut: 'チェックアウト',
+    facilities: '主な施設',
+    programs: 'ホテルプログラム',
+    morning: '午前',
+    afternoon: '午後',
+    evening: '夜',
+    poolRule: 'プール利用案内',
+    free: '無料',
+    won: 'ウォン',
+  },
+  info: {
+    title: '旅行情報',
+    flight: 'フライト',
+    rent: 'レンタカー',
+    tips: 'ヒント',
+    depart: '出発',
+    return: '帰国',
+  },
+  common: {
+    changePersona: '情報変更',
+    language: '言語',
+    highlight: 'メインスケジュール',
+  },
+};

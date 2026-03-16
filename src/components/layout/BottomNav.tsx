@@ -1,0 +1,39 @@
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useApp } from '../../context/AppContext';
+import { t } from '../../i18n';
+
+export function BottomNav() {
+  const pathname = usePathname();
+  const { lang } = useApp();
+
+  const items = [
+    { href: '/', label: t(lang, 'nav.today'), icon: '🏠' },
+    { href: '/schedule', label: t(lang, 'nav.schedule'), icon: '📅' },
+    { href: '/hotel', label: t(lang, 'nav.hotel'), icon: '🏨' },
+    { href: '/info', label: t(lang, 'nav.info'), icon: 'ℹ️' },
+  ];
+
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 max-w-lg mx-auto">
+      <div className="flex">
+        {items.map(item => {
+          const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`flex-1 flex flex-col items-center py-2 text-xs font-medium transition-colors ${
+                isActive ? 'text-emerald-600' : 'text-gray-500'
+              }`}
+            >
+              <span className="text-xl mb-0.5">{item.icon}</span>
+              <span>{item.label}</span>
+            </Link>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
