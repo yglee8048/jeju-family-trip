@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import type { DaySchedule } from '../../data/schedule';
-import type { Lang } from '../../data/personas';
+import type { Lang, Persona } from '../../data/personas';
 
 interface Props {
   schedule: DaySchedule;
   lang: Lang;
+  persona: Persona | null;
 }
 
-export function DayCard({ schedule, lang }: Props) {
-  const highlights = schedule.timeline.filter(t => t.highlight).slice(0, 3);
+export function DayCard({ schedule, lang, persona }: Props) {
+  const highlights = schedule.timeline
+    .filter(item => item.highlight && (!item.groups || !persona || item.groups.includes(persona.group)))
+    .slice(0, 3);
 
   return (
     <Link href={`/schedule/${schedule.day}`} className="block">

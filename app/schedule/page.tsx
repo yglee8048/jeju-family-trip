@@ -15,7 +15,7 @@ export default function SchedulePage() {
     <div className="px-4 pt-4 space-y-2">
       <h1 className="text-xl font-bold text-gray-800">{t(lang, 'schedule.title')}</h1>
       {filteredSchedules.map(s => (
-        <DayCard key={s.day} schedule={s} lang={lang} />
+        <DayCard key={s.day} schedule={s} lang={lang} persona={persona} />
       ))}
     </div>
   );

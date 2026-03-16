@@ -8,6 +8,16 @@ export interface TimelineItem {
   note?: { ko: string; ja: string };
 }
 
+export interface LunchCandidate {
+  name: string;
+  desc: { ko: string; ja: string };
+}
+
+export interface CandidateGroup {
+  category: { ko: string; ja: string };
+  items: LunchCandidate[];
+}
+
 export interface DaySchedule {
   day: 1 | 2 | 3 | 4;
   date: string;
@@ -15,6 +25,7 @@ export interface DaySchedule {
   overview: { ko: string; ja: string };
   timeline: TimelineItem[];
   groups?: Group[];
+  candidates?: CandidateGroup[];
 }
 
 export const schedules: DaySchedule[] = [
@@ -38,6 +49,15 @@ export const schedules: DaySchedule[] = [
       { time: '약 17:30', content: { ko: '숙소 도착 및 체크인 (JW 메리어트 레지던스 제주)', ja: 'チェックイン (JWマリオット レジデンス 済州)' }, highlight: true },
       { time: '저녁', content: { ko: '숙소에서 제주 흑돼지 구이', ja: '宿で済州黒豚焼肉' }, highlight: true },
     ],
+    candidates: [
+      {
+        category: { ko: '점심 후보', ja: 'ランチ候補' },
+        items: [
+          { name: '산우정', desc: { ko: '제주 흑돼지 수육', ja: '済州黒豚スユク' } },
+          { name: '한림 칼국수', desc: { ko: '생선 칼국수', ja: '魚介カルグクス' } },
+        ],
+      },
+    ],
   },
   {
     day: 2,
@@ -56,6 +76,16 @@ export const schedules: DaySchedule[] = [
       { time: '약 16:30', content: { ko: '숙소 도착', ja: '宿到着' } },
       { time: '16:30 ~', content: { ko: '수영장 / 자유 시간', ja: 'プール / 自由時間' } },
       { time: '저녁', content: { ko: '숙소에서 회 취식', ja: '宿で刺身' }, highlight: true },
+    ],
+    candidates: [
+      {
+        category: { ko: '점심 후보 (고기국수)', ja: 'ランチ候補（豚肉麺）' },
+        items: [
+          { name: '어우름', desc: { ko: '제주 흑돼지 고기국수', ja: '済州黒豚 肉麺' } },
+          { name: '꽃가람', desc: { ko: '고기국수 / 비빔국수', ja: '肉麺 / ビビム麺' } },
+          { name: '삼무 국수', desc: { ko: '고기국수', ja: '肉麺' } },
+        ],
+      },
     ],
   },
   {
@@ -79,6 +109,15 @@ export const schedules: DaySchedule[] = [
       { time: '17:00 ~ 18:30', content: { ko: '올레마당 저녁 식사 (고등어 구이 / 갈치 조림)', ja: 'オルレマダン夕食（サバ焼き / タチウオ煮）' }, groups: ['me_gf', 'parents'], highlight: true },
       { time: '19:00 ~ 20:30', content: { ko: '오레브 핫 스프링 앤 스파', ja: 'オレブ ホットスプリング＆スパ' }, groups: ['me_gf', 'parents'], highlight: true },
     ],
+    candidates: [
+      {
+        category: { ko: '점심 후보 (애월)', ja: 'ランチ候補（涯月）' },
+        items: [
+          { name: '해녀뜰', desc: { ko: '전복죽 / 미역국 정식', ja: 'アワビ粥 / ワカメスープ定食' } },
+          { name: '보배쌤 보리김치와 게장 하귀점', desc: { ko: '게장 / 성게미역국 정식', ja: 'カニ醤油漬け / ウニわかめスープ定食' } },
+        ],
+      },
+    ],
   },
   {
     day: 4,
@@ -94,6 +133,16 @@ export const schedules: DaySchedule[] = [
       { time: '약 14:15', content: { ko: 'GV70 반납 (제주 쏘카 터미널)', ja: 'GV70 返却（済州ソカターミナル）' } },
       { time: '15:15', content: { ko: '제주 출발 (TW718)', ja: '済州出発 (TW718)' }, highlight: true },
       { time: '16:30', content: { ko: '김포 도착', ja: '金浦到着' }, highlight: true },
+    ],
+    candidates: [
+      {
+        category: { ko: '점심 후보', ja: 'ランチ候補' },
+        items: [
+          { name: '행복한 시저네', desc: { ko: '흑돼지 짜글이', ja: '黒豚チャグルイ' } },
+          { name: '맨도롱 해장국', desc: { ko: '겡이국 / 몸국', ja: 'ゲンギクク / モムクク' } },
+          { name: '공천포 식당', desc: { ko: '물회', ja: 'ムルフェ（水刺身）' } },
+        ],
+      },
     ],
   },
 ];
