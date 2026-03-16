@@ -110,19 +110,29 @@ export default function HomePage() {
                     </h2>
                     <div className="grid grid-cols-2 gap-3">
                         <Link href="/hotel/detail" className="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-1 active:bg-gray-50">
-                            <span className="text-2xl">🏨</span>
-                            <span className="text-sm font-bold text-gray-800">
-                                {lang === 'ko' ? '객실 안내' : '客室案内'}
-                            </span>
+                            <div className="flex items-center gap-1.5 mb-0.5">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                                <span className="text-sm font-bold text-gray-800">
+                                    {lang === 'ko' ? '객실 안내' : '客室案内'}
+                                </span>
+                            </div>
                             <span className="text-xs text-gray-400">
                                 {lang === 'ko' ? '시설·어메니티·문의' : '施設・アメニティ'}
                             </span>
                         </Link>
                         <Link href="/hotel/programs" className="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-1 active:bg-gray-50">
-                            <span className="text-2xl">🎯</span>
-                            <span className="text-sm font-bold text-gray-800">
-                                {lang === 'ko' ? '호텔 프로그램' : 'ホテルプログラム'}
-                            </span>
+                            <div className="flex items-center gap-1.5 mb-0.5">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M12 2a9 9 0 0 1 9 9c0 4.17-2.84 7.67-6.69 8.69L12 22l-2.31-2.31C5.84 18.67 3 15.17 3 11a9 9 0 0 1 9-9z"/>
+                                    <path d="M12 8v4l2 2"/>
+                                </svg>
+                                <span className="text-sm font-bold text-gray-800">
+                                    {lang === 'ko' ? '호텔 프로그램' : 'ホテルプログラム'}
+                                </span>
+                            </div>
                             <span className="text-xs text-gray-400">
                                 {lang === 'ko' ? '요가·키즈·음식 체험' : 'ヨガ・キッズ・食体験'}
                             </span>
