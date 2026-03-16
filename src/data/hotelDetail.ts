@@ -147,6 +147,7 @@ export const hotelDetailSections: DetailSection[] = [
     },
     {
         title: {ko: '침구', ja: '寝具'},
+        note: {ko: '최대 8명까지 숙박 가능 · 여분 침구: 1층 온돌방 앞 수납장', ja: '最大8名まで宿泊可 · 予備寝具: 1階オンドル部屋前収納棚'},
         subsections: [
             {
                 label: {ko: '여분 침구 (4인 세트)', ja: '予備寝具（4人セット）'},
@@ -173,6 +174,21 @@ export const hotelDetailSections: DetailSection[] = [
         ],
     },
     {
+        title: {ko: '수영장 이용', ja: 'プール利用'},
+        items: [
+            {ko: '이동 시 객실 내 가운 착용 필수', ja: '移動時は客室内のガウン着用必須'},
+            {ko: '가운은 수영 후 객실로 반납', ja: 'ガウンは利用後、客室へ持ち帰ること'},
+        ],
+    },
+    {
+        title: {ko: '체크인 안내', ja: 'チェックイン案内'},
+        items: [
+            {ko: '운영시간(09:00~21:00): 레지던스 A동 로비', ja: '営業時間内(09:00~21:00): レジデンス A棟ロビー'},
+            {ko: '그 외 시간: 호텔 로비', ja: 'それ以外の時間: ホテルロビー'},
+            {ko: '지하 1층 주차 후 체크인 및 주차 등록', ja: '地下1階駐車後、チェックイン・駐車登録'},
+        ],
+    },
+    {
         title: {ko: '룸터치 서비스', ja: 'ルームタッチサービス'},
         note: {ko: '시간: 11:00 ~ 12:00', ja: '時間: 11:00 〜 12:00'},
         items: [
@@ -185,6 +201,12 @@ export const hotelDetailSections: DetailSection[] = [
     {
         title: {ko: '문의', ja: 'お問い合わせ'},
         subsections: [
+            {
+                label: {ko: '호텔 시설 이용', ja: 'ホテル施設利用'},
+                items: [
+                    {ko: '064-803-7777', ja: '064-803-7777'},
+                ],
+            },
             {
                 label: {ko: '청소 및 소모품', ja: '清掃・消耗品'},
                 items: [

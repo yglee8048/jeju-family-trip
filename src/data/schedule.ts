@@ -122,7 +122,7 @@ export const schedules: DaySchedule[] = [
             ja: 'セビョルフレンズ体験後、涯月でランチ。姉家族を見送り。マノコーヒーハウスでコーヒータイム後、夕食、オレブ温泉へ。'
         },
         timeline: [
-            {time: '07:30 ~ 08:30', content: {ko: '아침 식사 — 오는 정 김밥', ja: '朝食 — キンパブ'}, highlight: true},
+            {time: '07:30 ~ 08:30', content: {ko: '아침 식사 — 오는 정 김밥 + 라면', ja: '朝食 — キンパブ + ラーメン'}, highlight: true},
             {time: '09:00', content: {ko: '숙소 출발 (차량 2대)', ja: '宿出発（2台）'}},
             {time: '약 10:00', content: {ko: '새별 프렌즈 도착', ja: 'セビョルフレンズ 到着'}, highlight: true},
             {time: '10:00 ~ 11:30', content: {ko: '새별 프렌즈 체험', ja: 'セビョルフレンズ 体験'}, highlight: true},

@@ -98,6 +98,33 @@ export default function HomePage() {
                     </div>
                 )}
 
+                {/* Hotel Preview */}
+                <div className="animate-fade-in stagger-1">
+                    <h2 className="text-base font-bold text-gray-800 mb-3">
+                        {lang === 'ko' ? '호텔 미리보기' : 'ホテル事前確認'}
+                    </h2>
+                    <div className="grid grid-cols-2 gap-3">
+                        <Link href="/hotel/detail" className="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-1 active:bg-gray-50">
+                            <span className="text-2xl">🏨</span>
+                            <span className="text-sm font-bold text-gray-800">
+                                {lang === 'ko' ? '객실 안내' : '客室案内'}
+                            </span>
+                            <span className="text-xs text-gray-400">
+                                {lang === 'ko' ? '시설·어메니티·문의' : '施設・アメニティ'}
+                            </span>
+                        </Link>
+                        <Link href="/hotel/programs" className="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-1 active:bg-gray-50">
+                            <span className="text-2xl">🎯</span>
+                            <span className="text-sm font-bold text-gray-800">
+                                {lang === 'ko' ? '호텔 프로그램' : 'ホテルプログラム'}
+                            </span>
+                            <span className="text-xs text-gray-400">
+                                {lang === 'ko' ? '요가·키즈·음식 체험' : 'ヨガ・キッズ・食体験'}
+                            </span>
+                        </Link>
+                    </div>
+                </div>
+
                 {/* Checklist */}
                 <div className="animate-fade-in stagger-1">
                     <h2 className="text-base font-bold text-gray-800 mb-3">{t(lang, 'home.preTrip')}</h2>
