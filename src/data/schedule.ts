@@ -98,7 +98,12 @@ export const schedules: DaySchedule[] = [
             },
             {time: '16:15 ~ 16:30', content: {ko: '공항에서 전원 합류', ja: '空港で全員合流'}, highlight: true},
             {
-                time: '약 17:30',
+                time: '16:45 ~ 17:15',
+                content: {ko: '하나로마트 노형점 — 흑돼지 구매', ja: 'ハナロマート 老衡店 — 黒豚購入'},
+                url: 'https://naver.me/G0DXmAgH'
+            },
+            {
+                time: '약 18:00',
                 content: {ko: '숙소 도착 및 체크인 (JW 메리어트 레지던스 제주)', ja: 'チェックイン (JWマリオット レジデンス 済州)'},
                 highlight: true,
                 marker: {num: 3, color: '#3BC4B8'}
@@ -126,7 +131,8 @@ export const schedules: DaySchedule[] = [
                 time: '약 10:20',
                 content: {ko: '성산 유채꽃 재배단지 도착', ja: '城山 菜の花畑 到着'},
                 highlight: true,
-                marker: {num: 2, color: '#8C55F8'}
+                marker: {num: 2, color: '#8C55F8'},
+                url: 'https://naver.me/xAFCNNBC',
             },
             {time: '10:20 ~ 11:00', content: {ko: '유채꽃밭 자유 산책', ja: '菜の花畑 散策'}},
             {time: '11:00 ~ 12:00', content: {ko: '가족 스냅 사진 촬영', ja: 'ファミリースナップ撮影'}, highlight: true},
@@ -157,11 +163,16 @@ export const schedules: DaySchedule[] = [
                 time: '13:30 ~ 15:30',
                 content: {ko: '아쿠아플라넷 제주 관람', ja: 'アクアプラネット済州 見学'},
                 highlight: true,
-                marker: {num: 4, color: '#8C55F8'}
+                marker: {num: 4, color: '#8C55F8'},
+                url: 'https://naver.me/xiquOGa4',
             },
-            {time: '약 16:00', content: {ko: '하나로마트 — 회 구매', ja: 'ハナロマート — 刺身購入'}},
-            {time: '약 16:30', content: {ko: '숙소 도착', ja: '宿到着'}},
-            {time: '16:30 ~', content: {ko: '수영장 / 자유 시간', ja: 'プール / 自由時間'}},
+            {
+                time: '15:40 ~ 16:10',
+                content: {ko: '하나로마트 성산점 — 회 구매', ja: 'ハナロマート 城山店 — 刺身購入'},
+                url: 'https://naver.me/Fy2FnalF',
+            },
+            {time: '약 16:45', content: {ko: '숙소 도착', ja: '宿到着'}},
+            {time: '16:45 ~', content: {ko: '수영장 / 자유 시간', ja: 'プール / 自由時間'}},
             {
                 time: '저녁',
                 content: {ko: '숙소에서 회 취식', ja: '宿で刺身'},
@@ -190,7 +201,8 @@ export const schedules: DaySchedule[] = [
                 time: '약 10:00',
                 content: {ko: '새별 프렌즈 도착', ja: 'セビョルフレンズ 到着'},
                 highlight: true,
-                marker: {num: 3, color: '#8C55F8'}
+                marker: {num: 3, color: '#8C55F8'},
+                url: 'https://naver.me/FBe2u54z',
             },
             {time: '10:00 ~ 11:30', content: {ko: '새별 프렌즈 체험', ja: 'セビョルフレンズ 体験'}, highlight: true},
             {
