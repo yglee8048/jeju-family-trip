@@ -14,7 +14,7 @@ export default function HomePage() {
 
   if (!persona) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white animate-fade-in">
         <div className="pt-12 pb-8 px-4 text-center">
           <div className="text-5xl mb-4">🌿</div>
           <h1 className="text-xl font-bold text-gray-800 mb-2">{t(lang, 'onboarding.title')}</h1>
@@ -28,7 +28,7 @@ export default function HomePage() {
 
   if (phase === 'post') {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen animate-fade-in">
         <div className="text-center px-6">
           <div className="text-6xl mb-4">🌊</div>
           <p className="text-lg font-semibold text-gray-700">{t(lang, 'home.tripDone')}</p>
@@ -46,14 +46,17 @@ export default function HomePage() {
     return (
       <div className="px-4 pt-4 space-y-5">
         {/* D-Day Card */}
-        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-6 text-white">
-          <p className="text-sm opacity-80 mb-1">{t(lang, 'home.countdown.title')}</p>
-          <div className="text-5xl font-bold">D-{daysUntil}</div>
-          <p className="text-sm opacity-70 mt-2">2026-03-19 제주 출발</p>
+        <div className="relative bg-gradient-to-br from-sky-400 via-emerald-400 to-teal-500 rounded-3xl p-6 text-white overflow-hidden animate-fade-in">
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }} />
+          <p className="text-sm opacity-80 mb-1 relative">{t(lang, 'home.countdown.title')}</p>
+          <div className="text-5xl font-bold relative">D-{daysUntil}</div>
+          <p className="text-sm opacity-70 mt-2 relative">2026-03-19 제주 출발</p>
         </div>
 
         {/* Checklist */}
-        <div>
+        <div className="animate-fade-in stagger-1">
           <h2 className="text-base font-bold text-gray-800 mb-3">{t(lang, 'home.preTrip')}</h2>
           <div className="bg-white rounded-2xl divide-y divide-gray-100 shadow-sm">
             {filteredItems.map((item, i) => (
@@ -81,20 +84,23 @@ export default function HomePage() {
   return (
     <div className="px-4 pt-4 space-y-5">
       {/* Today Hero */}
-      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-6 text-white">
-        <p className="text-sm opacity-80 mb-1">2026-03-{18 + (currentDay ?? 1)} (Day {currentDay})</p>
-        <h1 className="text-xl font-bold">{todaySchedule?.title[lang]}</h1>
-        <p className="text-sm opacity-80 mt-2 leading-relaxed">{todaySchedule?.overview[lang]}</p>
+      <div className="relative bg-gradient-to-br from-sky-400 via-emerald-400 to-teal-500 rounded-3xl p-6 text-white overflow-hidden animate-fade-in">
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+        <p className="text-sm opacity-80 mb-1 relative">2026-03-{18 + (currentDay ?? 1)} (Day {currentDay})</p>
+        <h1 className="text-xl font-bold relative">{todaySchedule?.title[lang]}</h1>
+        <p className="text-sm opacity-80 mt-2 leading-relaxed relative">{todaySchedule?.overview[lang]}</p>
       </div>
 
       {/* Today Timeline */}
       {todayTimeline.length > 0 && (
-        <div>
+        <div className="animate-fade-in stagger-1">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-base font-bold text-gray-800">{t(lang, 'home.todaySchedule')}</h2>
             <Link href={`/schedule/${currentDay}`} className="text-xs text-emerald-600 font-medium">전체 보기 →</Link>
           </div>
-          <div className="bg-white rounded-2xl p-4 shadow-sm">
+          <div className="bg-white rounded-2xl p-4 shadow-sm border-l-4 border-emerald-400">
             {todayTimeline.map((item, i) => (
               <TimelineItem key={i} item={item} lang={lang} />
             ))}
@@ -104,9 +110,9 @@ export default function HomePage() {
 
       {/* Checklist */}
       {filteredChecklist.length > 0 && (
-        <div>
+        <div className="animate-fade-in stagger-2">
           <h2 className="text-base font-bold text-gray-800 mb-3">오늘의 준비물</h2>
-          <div className="bg-white rounded-2xl divide-y divide-gray-100 shadow-sm">
+          <div className="bg-white rounded-2xl divide-y divide-gray-100 shadow-sm border-l-4 border-amber-400">
             {filteredChecklist.map((item, i) => (
               <div key={i} className="flex items-center gap-3 px-4 py-3">
                 <span className="text-lg">☐</span>

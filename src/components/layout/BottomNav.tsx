@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Home, CalendarDays, Building2, Info } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { t } from '../../i18n';
 
@@ -9,10 +10,10 @@ export function BottomNav() {
   const { lang } = useApp();
 
   const items = [
-    { href: '/', label: t(lang, 'nav.today'), icon: '🏠' },
-    { href: '/schedule', label: t(lang, 'nav.schedule'), icon: '📅' },
-    { href: '/hotel', label: t(lang, 'nav.hotel'), icon: '🏨' },
-    { href: '/info', label: t(lang, 'nav.info'), icon: 'ℹ️' },
+    { href: '/', label: t(lang, 'nav.today'), Icon: Home },
+    { href: '/schedule', label: t(lang, 'nav.schedule'), Icon: CalendarDays },
+    { href: '/hotel', label: t(lang, 'nav.hotel'), Icon: Building2 },
+    { href: '/info', label: t(lang, 'nav.info'), Icon: Info },
   ];
 
   return (
@@ -24,12 +25,14 @@ export function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex-1 flex flex-col items-center py-2 text-xs font-medium transition-colors ${
-                isActive ? 'text-emerald-600' : 'text-gray-500'
-              }`}
+              className="flex-1 flex flex-col items-center py-2 transition-colors"
             >
-              <span className="text-xl mb-0.5">{item.icon}</span>
-              <span>{item.label}</span>
+              <div className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${
+                isActive ? 'text-emerald-600 bg-emerald-50' : 'text-gray-400'
+              }`}>
+                <item.Icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.8} />
+                <span className="text-[10px] font-medium">{item.label}</span>
+              </div>
             </Link>
           );
         })}

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { ChevronDown, Leaf } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { personas } from '../../data/personas';
 
@@ -16,29 +17,32 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 bg-white/90 backdrop-blur-sm border-b border-gray-100 z-40 max-w-lg mx-auto w-full">
-        <div className="flex items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <span className="text-xl">🌿</span>
-            <span className="font-semibold text-gray-800 text-sm">제주 가족 여행</span>
-          </div>
-          <div className="flex items-center gap-3">
-            {persona && (
+      <header className="sticky top-0 z-40 max-w-lg mx-auto w-full">
+        <div className="h-1 bg-gradient-to-r from-sky-400 via-emerald-400 to-teal-500" />
+        <div className="bg-white/90 backdrop-blur-sm border-b border-gray-100">
+          <div className="flex items-center justify-between px-4 py-3">
+            <div className="flex items-center gap-2">
+              <Leaf className="w-5 h-5 text-emerald-500" strokeWidth={2} />
+              <span className="font-semibold text-gray-800 text-sm">제주 가족 여행</span>
+            </div>
+            <div className="flex items-center gap-3">
+              {persona && (
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="flex items-center gap-1.5 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 transition-colors"
+                >
+                  <span>{persona.emoji}</span>
+                  <span>{persona.name[lang]}</span>
+                  <ChevronDown className="w-3 h-3 text-gray-400" />
+                </button>
+              )}
               <button
-                onClick={() => setShowModal(true)}
-                className="flex items-center gap-1.5 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 transition-colors"
+                onClick={() => setLang(lang === 'ko' ? 'ja' : 'ko')}
+                className="text-xs bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 font-medium transition-colors"
               >
-                <span>{persona.emoji}</span>
-                <span>{persona.name[lang]}</span>
-                <span className="text-gray-400 text-xs">▾</span>
+                {lang === 'ko' ? 'KO' : 'JA'}
               </button>
-            )}
-            <button
-              onClick={() => setLang(lang === 'ko' ? 'ja' : 'ko')}
-              className="text-xs bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 font-medium transition-colors"
-            >
-              {lang === 'ko' ? 'KO' : 'JA'}
-            </button>
+            </div>
           </div>
         </div>
       </header>
