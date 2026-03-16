@@ -11,7 +11,16 @@ export function TimelineItem({item, lang}: Props) {
     return (
         <div className={`flex gap-3 ${item.highlight ? '' : 'opacity-75'}`}>
             <div className="flex flex-col items-center">
-                <div className={`w-3 h-3 rounded-full mt-1 shrink-0 ${item.highlight ? 'bg-sky-400' : 'bg-gray-300'}`}/>
+                {item.marker ? (
+                    <div
+                        className="w-5 h-5 rounded-full mt-0.5 shrink-0 flex items-center justify-center text-[10px] font-bold text-white"
+                        style={{backgroundColor: item.marker.color}}
+                    >
+                        {item.marker.num}
+                    </div>
+                ) : (
+                    <div className={`w-3 h-3 rounded-full mt-1 shrink-0 ${item.highlight ? 'bg-sky-400' : 'bg-gray-300'}`}/>
+                )}
                 <div className="w-0.5 bg-gray-200 flex-1 mt-1"/>
             </div>
             <div className="pb-4 flex-1">
