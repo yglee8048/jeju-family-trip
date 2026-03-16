@@ -40,6 +40,8 @@ export const ja = {
     free: '無料',
     won: 'ウォン',
     popup: 'ポップアップ / ショッピング',
+    kids: 'キッズ & ファミリー',
+    rental: 'レンタルプログラム',
     reserve: '予約する',
     walkIn: '予約不要',
     info: '詳細を見る',

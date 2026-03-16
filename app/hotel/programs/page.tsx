@@ -10,17 +10,21 @@ const categoryColors = {
   morning: 'bg-sky-300',
   afternoon: 'bg-[#5ec4b1]',
   evening: 'bg-[#9b8fe8]',
+  kids: 'bg-orange-300',
+  rental: 'bg-amber-400',
 };
 
 export default function HotelProgramsPage() {
   const { lang } = useApp();
 
-  const categories = ['popup', 'morning', 'afternoon', 'evening'] as const;
+  const categories = ['popup', 'morning', 'afternoon', 'evening', 'kids', 'rental'] as const;
   const categoryLabels = {
     popup: t(lang, 'hotel.popup'),
     morning: t(lang, 'hotel.morning'),
     afternoon: t(lang, 'hotel.afternoon'),
     evening: t(lang, 'hotel.evening'),
+    kids: t(lang, 'hotel.kids'),
+    rental: t(lang, 'hotel.rental'),
   };
 
   return (
@@ -51,11 +55,13 @@ export default function HotelProgramsPage() {
                     <div className="text-sm font-semibold text-gray-800">{p.name[lang]}</div>
                     <div className="text-xs text-gray-500 leading-relaxed">{p.desc[lang]}</div>
                     <div className="text-xs text-gray-400 space-y-0.5">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3 h-3 flex-shrink-0" />
-                        <span>{p.time}</span>
-                        {p.days && <span className="text-gray-400">({p.days})</span>}
-                      </div>
+                      {p.time && (
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-3 h-3 flex-shrink-0" />
+                          <span>{p.time}</span>
+                          {p.days && <span className="text-gray-400">({p.days})</span>}
+                        </div>
+                      )}
                       <div className="flex items-center gap-1">
                         <MapPin className="w-3 h-3 flex-shrink-0" />
                         <span>{p.location[lang]}</span>

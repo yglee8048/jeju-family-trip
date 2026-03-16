@@ -40,6 +40,8 @@ export const ko = {
     free: '무료',
     won: '원',
     popup: '팝업 / 쇼핑',
+    kids: '키즈 & 패밀리',
+    rental: '대여 프로그램',
     reserve: '예약하기',
     walkIn: '예약 불필요',
     info: '자세히 보기',

@@ -12,40 +12,39 @@
 - **기기:** 모바일 우선 (스마트폰으로 주로 접근)
 - **기술 수준:** 앱 설치 없이 링크만으로 접근
 
-## 여행 데이터
+## 데이터 관리
 
-모든 여행 정보는 `content/` 디렉토리의 Markdown 파일로 관리:
+여행 데이터는 **`src/data/`의 TypeScript 파일**로 관리한다.
+
+```
+src/data/
+├── schedule.ts     : 날짜별 일정 (day 1~4)
+├── hotel.ts        : 호텔 기본 정보 + 프로그램 목록
+├── hotelDetail.ts  : 호텔 세부 정보
+├── flights.ts      : 항공편 정보
+├── rental.ts       : 렌트카 정보
+├── checklist.ts    : 체크리스트
+└── personas.ts     : 가족 구성원(페르소나) 정의
+```
+
+## content/ 디렉토리 용도
+
+`content/`는 **기획 참고용 메모**다. 앱에서 직접 읽지 않는다.
 
 ```
 content/
-├── trip.md : 여행 개요
-├── family.md : 가족 구성원 정보
-├── hotel/ : 호텔 정보
-    ├── hotel.md : 호텔 핵심 정보
-    ├── hotel_detail.md : 호텔 세부 정보
-    └── hotel_programs.md : 호텔 프로그램 정보
-├── flight.md : 항공편 정보
-├── rent.md : 렌트카 정보
-└── schedule/ : 날짜별 상세 일정
-    ├── day1.md
-    ├── day2.md
-    ├── day3.md
-    └── day4.md
+├── trip.md              : 여행 개요 메모
+├── family.md            : 가족 구성원 메모
+└── schedule/day1~4.md   : 일정 초안 메모
 ```
 
-날짜/섹션별 파일 분리로 필요한 파일만 on-demand 로딩 가능.
-
-## 콘텐츠 파일 관리 원칙
-
-`content/` 파일은 Claude agent가 여행 정보를 참고하기 위한 데이터 소스다.
-
-- **한국어로만 작성**한다. 일본어 번역은 작성하지 않는다.
-- 일본어 UI 텍스트는 앱 소스 코드(i18n)에서 관리한다.
-- 화면 노출은 사용자가 언어 토글로 ko / ja 선택한다.
+- Claude agent가 데이터를 추가·수정할 때 참고하는 소스 문서
+- **한국어로만 작성**한다. 일본어 번역은 `src/i18n/`에서 관리
+- content 파일을 수정해도 앱에 자동 반영되지 않음 — 반드시 `src/data/` TS 파일을 함께 수정해야 한다
 
 ## 개발 규칙
 
 - 컴포넌트는 `src/components/` 아래 기능별 폴더로 구성
-- UI 텍스트는 한국어·일본어 모두 지원 (언어 토글)
+- UI 텍스트는 `src/i18n/ko.ts` · `src/i18n/ja.ts`에서 한/일 모두 관리
 - 모바일 우선 반응형 (Tailwind CSS)
 - 외부 의존성 추가 시 모바일 번들 크기 고려

@@ -2,7 +2,7 @@
 import { ExternalLink, AlertTriangle, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { useApp } from '../../src/context/AppContext';
-import { hotelInfo } from '../../src/data/hotel';
+import { hotelInfo, hotelPrograms } from '../../src/data/hotel';
 import { t } from '../../src/i18n';
 
 export default function HotelPage() {
@@ -84,7 +84,7 @@ export default function HotelPage() {
           <div>
             <h2 className="font-bold text-gray-800">{t(lang, 'hotel.programs')}</h2>
             <p className="text-xs text-gray-400 mt-0.5">
-              {lang === 'ko' ? '16개 프로그램 · 예약 안내 포함' : '16プログラム · 予約案内あり'}
+              {lang === 'ko' ? `${hotelPrograms.length}개 프로그램 · 예약 안내 포함` : `${hotelPrograms.length}プログラム · 予約案内あり`}
             </p>
           </div>
           <ChevronRight className="w-5 h-5 text-sky-400 flex-shrink-0" />
