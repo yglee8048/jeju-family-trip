@@ -28,7 +28,16 @@ export function PersonaSelector({ onSelect, isOnboarding }: Props) {
           onClick={() => handleSelect(p.id)}
           className="flex flex-col items-center justify-center bg-white border-2 border-gray-200 hover:border-sky-300 active:border-sky-500 rounded-2xl p-5 transition-colors shadow-sm"
         >
-          <span className="text-base font-semibold text-gray-800">{p.name[lang]}</span>
+          {isOnboarding ? (
+            <>
+              <span className="text-base font-semibold text-gray-800">{p.name.ko}</span>
+              {p.name.ko !== p.name.ja && (
+                <span className="text-xs text-gray-400">{p.name.ja}</span>
+              )}
+            </>
+          ) : (
+            <span className="text-base font-semibold text-gray-800">{p.name[lang]}</span>
+          )}
         </button>
       ))}
     </div>

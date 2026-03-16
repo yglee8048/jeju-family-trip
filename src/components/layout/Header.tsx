@@ -1,12 +1,16 @@
 'use client';
 import { useState } from 'react';
 import { ChevronDown, PlaneTakeoff } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useApp } from '../../context/AppContext';
 import { personas } from '../../data/personas';
 
 export function Header() {
+  const pathname = usePathname();
   const { persona, lang, setLang, setPersona } = useApp();
   const [showModal, setShowModal] = useState(false);
+
+  if (pathname.startsWith('/onboarding') || !persona) return null;
 
   function handleSelect(id: string) {
     const p = personas.find(x => x.id === id)!;
@@ -50,7 +54,7 @@ export function Header() {
         <div className="fixed inset-0 z-50 flex items-end justify-center" onClick={() => setShowModal(false)}>
           <div className="absolute inset-0 bg-black/40" />
           <div
-            className="relative bg-white rounded-t-3xl w-full max-w-lg p-5 pb-8"
+            className="relative bg-white rounded-t-3xl w-full max-w-lg p-5 pb-20"
             onClick={e => e.stopPropagation()}
           >
             <div className="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-5" />

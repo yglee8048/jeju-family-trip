@@ -7,7 +7,9 @@ import { t } from '../../i18n';
 
 export function BottomNav() {
   const pathname = usePathname();
-  const { lang } = useApp();
+  const { lang, persona } = useApp();
+
+  if (pathname.startsWith('/onboarding') || !persona) return null;
 
   const items = [
     { href: '/', label: t(lang, 'nav.today'), Icon: Home },
