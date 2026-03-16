@@ -39,6 +39,10 @@ export const ja = {
     poolRule: 'プール利用案内',
     free: '無料',
     won: 'ウォン',
+    popup: 'ポップアップ / ショッピング',
+    reserve: '予約する',
+    walkIn: '予約不要',
+    info: '詳細を見る',
   },
   info: {
     title: '旅行情報',

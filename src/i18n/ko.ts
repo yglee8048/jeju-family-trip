@@ -39,6 +39,10 @@ export const ko = {
     poolRule: '수영장 이용 안내',
     free: '무료',
     won: '원',
+    popup: '팝업 / 쇼핑',
+    reserve: '예약하기',
+    walkIn: '예약 불필요',
+    info: '자세히 보기',
   },
   info: {
     title: '여행 정보',

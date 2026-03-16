@@ -6,8 +6,9 @@ import { t } from '../../src/i18n';
 export default function HotelPage() {
   const { lang } = useApp();
 
-  const categories = ['morning', 'afternoon', 'evening'] as const;
+  const categories = ['popup', 'morning', 'afternoon', 'evening'] as const;
   const categoryLabels = {
+    popup: t(lang, 'hotel.popup'),
     morning: t(lang, 'hotel.morning'),
     afternoon: t(lang, 'hotel.afternoon'),
     evening: t(lang, 'hotel.evening'),
@@ -51,23 +52,54 @@ export default function HotelPage() {
         <h2 className="text-base font-bold text-gray-800 mb-3">{t(lang, 'hotel.programs')}</h2>
         {categories.map(cat => {
           const programs = hotelPrograms.filter(p => p.category === cat);
+          if (programs.length === 0) return null;
           return (
-            <div key={cat} className="mb-4">
-              <h3 className="text-sm font-semibold text-gray-600 mb-2">{categoryLabels[cat]}</h3>
+            <div key={cat} className="mb-5">
+              <h3 className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">{categoryLabels[cat]}</h3>
               <div className="space-y-2">
                 {programs.map(p => (
-                  <div key={p.id} className="bg-white rounded-xl p-3 shadow-sm flex items-start justify-between gap-3">
-                    <div>
-                      <div className="text-sm font-medium text-gray-800">{p.name[lang]}</div>
-                      <div className="text-xs text-gray-500 mt-0.5">{p.desc[lang]}</div>
+                  <div key={p.id} className="bg-white rounded-xl p-3 shadow-sm space-y-2">
+                    {/* Name row */}
+                    <div className="text-sm font-semibold text-gray-800">{p.name[lang]}</div>
+
+                    {/* Description */}
+                    <div className="text-xs text-gray-500 leading-relaxed">{p.desc[lang]}</div>
+
+                    {/* Time / location / age */}
+                    <div className="text-xs text-gray-400 space-y-0.5">
+                      <div>
+                        🕐 {p.time}
+                        {p.days && <span className="ml-2 text-gray-400">({p.days})</span>}
+                      </div>
+                      <div>📍 {p.location[lang]}</div>
+                      {p.minAge && <div>👤 {p.minAge}</div>}
                     </div>
-                    {p.price ? (
-                      <span className="text-xs font-semibold text-emerald-600 whitespace-nowrap">
-                        {p.price.toLocaleString()}{t(lang, 'hotel.won')}
-                      </span>
-                    ) : (
-                      <span className="text-xs font-semibold text-gray-400">{t(lang, 'hotel.free')}</span>
-                    )}
+
+                    {/* Reservation / price row */}
+                    <div className="flex items-center justify-between pt-1">
+                      {p.noReservation ? (
+                        <span className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
+                          {t(lang, 'hotel.walkIn')}
+                        </span>
+                      ) : p.url ? (
+                        <a
+                          href={p.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-medium text-blue-500"
+                        >
+                          {t(lang, 'hotel.reserve')} →
+                        </a>
+                      ) : <span />}
+
+                      {p.price ? (
+                        <span className="text-xs font-semibold text-emerald-600">
+                          {p.price.toLocaleString()}{t(lang, 'hotel.won')}
+                        </span>
+                      ) : (
+                        <span className="text-xs font-semibold text-gray-400">{t(lang, 'hotel.free')}</span>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
