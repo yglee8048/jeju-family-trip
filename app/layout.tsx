@@ -15,6 +15,17 @@ const notoSansKR = Noto_Sans_KR({
 export const metadata: Metadata = {
   title: '제주 가족 여행 2026',
   description: '2026년 3월 제주 가족 여행 일정',
+  icons: {
+    icon: [
+      { url: '/icon.ico', type: 'image/x-icon' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+  },
+  openGraph: {
+    title: '제주 가족 여행 2026',
+    description: '2026년 3월 제주 가족 여행 일정',
+    images: [{ url: '/og.png' }],
+  },
 };
 
 export const viewport: Viewport = {
