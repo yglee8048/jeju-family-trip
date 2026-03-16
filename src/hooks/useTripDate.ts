@@ -1,5 +1,6 @@
 'use client';
 import { useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const TRIP_START = new Date('2026-03-19');
 const TRIP_END = new Date('2026-03-22');
@@ -7,7 +8,15 @@ const TRIP_END = new Date('2026-03-22');
 export type TripPhase = 'pre' | 'day1' | 'day2' | 'day3' | 'day4' | 'post';
 
 export function useTripDate() {
-  const today = useMemo(() => new Date(), []);
+  const searchParams = useSearchParams();
+  const today = useMemo(() => {
+    const override = searchParams.get('date');
+    if (override) {
+      const d = new Date(override);
+      if (!isNaN(d.getTime())) return d;
+    }
+    return new Date();
+  }, [searchParams]);
 
   const phase = useMemo((): TripPhase => {
     const d = new Date(today);

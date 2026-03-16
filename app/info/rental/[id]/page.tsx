@@ -5,6 +5,7 @@ export function generateStaticParams() {
     return rentalCars.map((car) => ({id: car.id}));
 }
 
-export default function RentalDetailPage({params}: {params: {id: string}}) {
-    return <RentalDetailClient id={params.id}/>;
+export default async function RentalDetailPage({params}: {params: Promise<{id: string}>}) {
+    const {id} = await params;
+    return <RentalDetailClient id={id}/>;
 }

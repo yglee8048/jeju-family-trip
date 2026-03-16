@@ -8,6 +8,8 @@ import {TimelineItem} from '@/src/components/schedule/TimelineItem';
 import {t} from '@/src/i18n';
 import Link from 'next/link';
 import type {Lang} from '@/src/data/personas';
+import {WeatherForecast} from '@/src/components/home/WeatherForecast';
+import {WeatherCurrent} from '@/src/components/home/WeatherCurrent';
 
 type Flight = (typeof flights)[number];
 
@@ -87,6 +89,9 @@ export default function HomePage() {
                     <div className="text-5xl font-bold relative">D-{daysUntil}</div>
                     <p className="text-sm opacity-70 mt-2 relative">2026-03-19 제주 출발</p>
                 </div>
+
+                {/* Weather Forecast */}
+                <WeatherForecast lang={lang}/>
 
                 {/* Depart Flight */}
                 {departFlight && (
@@ -169,6 +174,7 @@ export default function HomePage() {
                 <p className="text-sm opacity-80 mb-1 relative">2026-03-{18 + (currentDay ?? 1)} (Day {currentDay})</p>
                 <h1 className="text-xl font-bold relative">{todaySchedule?.title[lang]}</h1>
                 <p className="text-sm opacity-80 mt-2 leading-relaxed relative">{todaySchedule?.overview[lang]}</p>
+                <WeatherCurrent lang={lang}/>
             </div>
 
             {/* Today Timeline */}

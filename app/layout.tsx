@@ -14,6 +14,7 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://jeju-family-trip.vercel.app'),
     title: '제주 가족 여행 2026',
     description: '2026년 3월 제주 가족 여행 일정',
     icons: {
