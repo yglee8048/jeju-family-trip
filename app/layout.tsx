@@ -4,6 +4,7 @@ import './globals.css';
 import { AppProvider } from '../src/context/AppContext';
 import { BottomNav } from '../src/components/layout/BottomNav';
 import { Header } from '../src/components/layout/Header';
+import { SwipeNavWrapper } from '../src/components/layout/SwipeNavWrapper';
 
 const notoSansKR = Noto_Sans_KR({
   weight: ['400', '500', '700'],
@@ -41,9 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AppProvider>
           <div className="max-w-lg mx-auto relative min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1 pb-20">
+            <SwipeNavWrapper>
               {children}
-            </main>
+            </SwipeNavWrapper>
             <BottomNav />
           </div>
         </AppProvider>
