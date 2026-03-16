@@ -10,7 +10,7 @@ export function Header() {
   function handleSelect(id: string) {
     const p = personas.find(x => x.id === id)!;
     setPersona(p);
-    if (p.defaultLang === 'ja') setLang('ja');
+    setLang(p.defaultLang);
     setShowModal(false);
   }
 
