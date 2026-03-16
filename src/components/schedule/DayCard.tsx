@@ -12,7 +12,7 @@ export function DayCard({ schedule, lang }: Props) {
   const highlights = schedule.timeline.filter(t => t.highlight).slice(0, 3);
 
   return (
-    <Link href={`/schedule/${schedule.day}`}>
+    <Link href={`/schedule/${schedule.day}`} className="block">
       <div className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 active:scale-95">
         <div className="p-4">
           <div className="flex items-center justify-between mb-1">

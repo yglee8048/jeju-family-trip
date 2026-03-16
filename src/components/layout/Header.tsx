@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { ChevronDown, Leaf } from 'lucide-react';
+import { ChevronDown, PlaneTakeoff } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { personas } from '../../data/personas';
 
@@ -22,7 +22,7 @@ export function Header() {
         <div className="bg-white/90 backdrop-blur-sm border-b border-gray-100">
           <div className="flex items-center justify-between px-4 py-3">
             <div className="flex items-center gap-2">
-              <Leaf className="w-5 h-5 text-sky-400" strokeWidth={2} />
+              <PlaneTakeoff className="w-5 h-5 text-sky-400" strokeWidth={2} />
               <span className="font-semibold text-gray-800 text-sm">제주 가족 여행</span>
             </div>
             <div className="flex items-center gap-3">
