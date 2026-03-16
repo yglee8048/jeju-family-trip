@@ -3,9 +3,34 @@ import { useApp } from '../src/context/AppContext';
 import { PersonaSelector } from '../src/components/common/PersonaSelector';
 import { schedules } from '../src/data/schedule';
 import { checklists } from '../src/data/checklist';
+import { flights } from '../src/data/flights';
 import { TimelineItem } from '../src/components/schedule/TimelineItem';
 import { t } from '../src/i18n';
 import Link from 'next/link';
+import type { Lang } from '../src/data/personas';
+
+type Flight = (typeof flights)[number];
+
+function FlightCard({ flight, lang }: { flight: Flight; lang: Lang }) {
+  const isReturn = flight.direction === 'return';
+  return (
+    <div className={`rounded-2xl p-4 shadow-sm ${isReturn ? 'bg-orange-50 border border-orange-100' : 'bg-sky-50 border border-sky-100'}`}>
+      <div className="flex items-center justify-between mb-2">
+        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${isReturn ? 'bg-orange-200 text-orange-700' : 'bg-sky-200 text-sky-700'}`}>
+          {isReturn ? (lang === 'ko' ? '귀국' : '帰国') : (lang === 'ko' ? '출발' : '出発')}
+        </span>
+        <span className="text-xs text-gray-400">{flight.date}</span>
+      </div>
+      <div className="text-sm font-semibold text-gray-800 mb-1">{flight.route[lang]}</div>
+      <div className="flex items-center gap-2 text-sm text-gray-700">
+        <span className="font-bold">{flight.departure}</span>
+        <span className="text-gray-300">→</span>
+        <span className="font-bold">{flight.arrival}</span>
+        <span className="text-xs text-gray-400 ml-auto">{flight.flight}</span>
+      </div>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const { persona, loaded, lang, phase, daysUntil, currentDay } = useApp();
@@ -42,6 +67,7 @@ export default function HomePage() {
     const filteredItems = checklist?.items.filter(item =>
       !item.groups || item.groups.includes(persona.group)
     ) ?? [];
+    const departFlight = flights.find(f => f.group === persona.group && f.direction === 'depart');
 
     return (
       <div className="px-4 pt-4 space-y-5">
@@ -54,6 +80,16 @@ export default function HomePage() {
           <div className="text-5xl font-bold relative">D-{daysUntil}</div>
           <p className="text-sm opacity-70 mt-2 relative">2026-03-19 제주 출발</p>
         </div>
+
+        {/* Depart Flight */}
+        {departFlight && (
+          <div className="animate-fade-in">
+            <h2 className="text-base font-bold text-gray-800 mb-3">
+              {lang === 'ko' ? '출발 항공편' : '出発フライト'}
+            </h2>
+            <FlightCard flight={departFlight} lang={lang} />
+          </div>
+        )}
 
         {/* Checklist */}
         <div className="animate-fade-in stagger-1">
@@ -81,6 +117,13 @@ export default function HomePage() {
     !item.groups || item.groups.includes(persona.group)
   ) ?? [];
 
+  const isLastDay =
+    (persona.group === 'sister_family' && currentDay === 3) ||
+    ((persona.group === 'me_gf' || persona.group === 'parents') && currentDay === 4);
+  const returnFlight = isLastDay
+    ? flights.find(f => f.group === persona.group && f.direction === 'return')
+    : null;
+
   return (
     <div className="px-4 pt-4 space-y-5">
       {/* Today Hero */}
@@ -105,6 +148,16 @@ export default function HomePage() {
               <TimelineItem key={i} item={item} lang={lang} />
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Return Flight */}
+      {returnFlight && (
+        <div className="animate-fade-in stagger-2">
+          <h2 className="text-base font-bold text-gray-800 mb-3">
+            {lang === 'ko' ? '귀국 항공편' : '帰国フライト'}
+          </h2>
+          <FlightCard flight={returnFlight} lang={lang} />
         </div>
       )}
 

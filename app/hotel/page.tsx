@@ -1,5 +1,6 @@
 'use client';
-import { Clock, MapPin, User, ExternalLink, AlertTriangle } from 'lucide-react';
+import { Clock, MapPin, User, ExternalLink, AlertTriangle, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 import { useApp } from '../../src/context/AppContext';
 import { hotelInfo, hotelPrograms } from '../../src/data/hotel';
 import { t } from '../../src/i18n';
@@ -55,6 +56,12 @@ export default function HotelPage() {
         <div className="flex items-start gap-1.5 text-xs text-gray-500 mt-3">
           <AlertTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
           <span>{hotelInfo.poolRule[lang]}</span>
+        </div>
+        <div className="border-t border-gray-100 mt-3 pt-3">
+          <Link href="/hotel/detail" className="flex items-center justify-between text-sm text-sky-600 font-medium">
+            <span>{lang === 'ko' ? '세부 정보 보기' : '詳細情報を見る'}</span>
+            <ChevronRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
 
