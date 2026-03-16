@@ -14,7 +14,7 @@ export const personas: Persona[] = [
   { id: 'jungkwon', name: { ko: '정권', ja: 'ジョングォン' }, group: 'parents', defaultLang: 'ko' },
   { id: 'hyungsoon', name: { ko: '형순', ja: 'ヒョンスン' }, group: 'parents', defaultLang: 'ko' },
   { id: 'jungmin', name: { ko: '정민', ja: 'ジョンミン' }, group: 'sister_family', defaultLang: 'ko' },
-  { id: 'kazuma', name: { ko: '카즈마', ja: 'カズマ' }, group: 'sister_family', defaultLang: 'ja' },
+  { id: 'kazuma', name: { ko: '카즈', ja: 'カズマ' }, group: 'sister_family', defaultLang: 'ja' },
 ];
 
 export function getPersonaById(id: string): Persona | undefined {

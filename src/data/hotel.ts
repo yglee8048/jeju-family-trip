@@ -113,7 +113,7 @@ export const hotelPrograms: HotelProgram[] = [
     minAge: '만 10세 이상',
     url: 'https://www.tablecheck.com/ko/jw-marriott-jeju-resort-activity/reserve/experience/67fcef899a8a861e62677051',
     noReservation: false,
-    price: null,
+    price: 40000,
   },
   {
     id: 'coffee',
@@ -127,7 +127,7 @@ export const hotelPrograms: HotelProgram[] = [
     minAge: '12세 이상',
     url: 'https://www.tablecheck.com/ko/jw-marriott-jeju-resort-activity/reserve/experience/67af1d4c9b45eba49d6ecc36',
     noReservation: false,
-    price: null,
+    price: 20000,
   },
   {
     id: 'omegi',
@@ -141,7 +141,7 @@ export const hotelPrograms: HotelProgram[] = [
     minAge: '8세 이상',
     url: 'https://www.tablecheck.com/ko/jw-marriott-jeju-resort-activity/reserve/experience/699e86d5a45e9bf289cae023',
     noReservation: false,
-    price: null,
+    price: 20000,
   },
   {
     id: 'artclimbing',
@@ -169,7 +169,7 @@ export const hotelPrograms: HotelProgram[] = [
     minAge: '12세 이상',
     url: 'https://www.tablecheck.com/ko/jw-marriott-jeju-resort-activity/reserve/experience/694e282dc1fb4e8921e2528a',
     noReservation: false,
-    price: null,
+    price: 30000,
   },
   {
     id: 'aqua',
@@ -197,7 +197,7 @@ export const hotelPrograms: HotelProgram[] = [
     minAge: '19세 이상',
     url: 'https://www.tablecheck.com/ko/jw-marriott-jeju-resort-activity/reserve/experience/699e8570e149573a56474b95',
     noReservation: false,
-    price: null,
+    price: 25000,
   },
   {
     id: 'cocktail',
@@ -211,7 +211,7 @@ export const hotelPrograms: HotelProgram[] = [
     minAge: '19세 이상',
     url: 'https://www.tablecheck.com/ko/jw-marriott-jeju-resort-activity/reserve/experience/67af16433957879a66a36cf2',
     noReservation: false,
-    price: null,
+    price: 15000,
   },
   {
     id: 'bonfire',
